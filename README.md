@@ -1,10 +1,10 @@
-### 語学講座CS2-Classic
+### 語学講座CS2-extra
 ストリーミングで公開されているNHKラジオ語学講座(らじる★らじる(聴き逃し)配信)の録音を自動化するためのアプリです。 開発が中断しているhttps://osdn.net/projects/capturestream/  の派生版ですが、機能は限定しており、名称も変更しました。正式に開発を引き継いだものではありません。                            
 語学講座の録音にはffmpegを利用します。              
 ※ 録音した語学講座のファイルは著作権法で許されている範囲内でご利用ください。       
    
 ### 安定版(master)最新リリース  
-[リリース](https://github.com/CSReviser/CaptureStream2-Classic/releases)    
+[リリース](https://github.com/CSReviser/CaptureStream2-extra/releases)    
 
 Macintosh版: [macOS版について](https://github.com/CSReviser/CS-English/wiki/Macintosh%E7%89%88)                          
 
@@ -42,4 +42,4 @@ Macintosh版: [macOS版について](https://github.com/CSReviser/CS-English/wik
      
 
 ### イメージ（Windows版）  
-![無題21](https://user-images.githubusercontent.com/46049273/215409469-60aa60a4-3057-4dcc-a838-bc416ce18d6c.png)
+
