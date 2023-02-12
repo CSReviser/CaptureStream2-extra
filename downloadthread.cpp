@@ -846,7 +846,7 @@ QString DownloadThread::json_paths[] = {
 	"0953", "4412", "0946", "4411",
 	"0943", "4410", "0948", "4413",
 	"0956", "4414", "1893", "2769",
-	"0937", "0701", "7629", "7155"
+	"0937", "7155", "0701", "7629"
 };
 
 
@@ -876,11 +876,11 @@ void DownloadThread::run() {
 		ui->checkBox_basic0, ui->checkBox_basic1, ui->checkBox_basic2, ui->checkBox_basic3,
 		ui->checkBox_timetrial, ui->checkBox_kaiwa, ui->checkBox_business1, ui->checkBox_enjoy,
 		ui->checkBox_vrradio, ui->checkBox_gendai,
-		ui->checkBox_chinese, ui->checkBox_chinese, ui->checkBox_hangeul, ui->checkBox_hangeul, 
-		ui->checkBox_french, ui->checkBox_french, ui->checkBox_italian, ui->checkBox_italian,
-		ui->checkBox_german, ui->checkBox_german, ui->checkBox_spanish, ui->checkBox_spanish,
-		ui->checkBox_russian, ui->checkBox_russian, ui->checkBox_portuguese, ui->checkBox_portuguese,
-		ui->checkBox_arabic, ui->checkBox_japanese, ui->checkBox_japanese, ui->checkBox_japanese,
+		ui->checkBox_chinese, ui->checkBox_stepup_chinese, ui->checkBox_hangeul, ui->checkBox_stepup_hangeul, 
+		ui->checkBox_french, ui->checkBox_french2, ui->checkBox_italian, ui->checkBox_italian2,
+		ui->checkBox_german, ui->checkBox_german2, ui->checkBox_spanish, ui->checkBox_spanish2,
+		ui->checkBox_russian, ui->checkBox_russian2, ui->checkBox_portuguese, ui->checkBox_stepup_portuguese,
+		ui->checkBox_arabic, ui->checkBox_Living_in_Japan, ui->checkBox_japanese, ui->checkBox_japanese2,
 		NULL
 	};
 

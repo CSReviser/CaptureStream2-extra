@@ -88,7 +88,7 @@ namespace {
 //			int day = regexp.cap( 2 ).toInt();
 //			result = QString( " (%1/%2/%3)" ).arg( regexp.cap( 3 ) )
 //					.arg( month, 2, 10, QLatin1Char( '0' ) ).arg( day, 2, 10, QLatin1Char( '0' ) );
-			result = QString( "  (2023/02/04) -classic-" ); 
+			result = QString( "  (2023/02/11) " ); 
 		}
 		return result;
 	}
@@ -199,7 +199,7 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 //#define DefaultFileName3 "%h"
 //#define DefaultFileName4 "%f"
 	CheckBox checkBoxes[] = {
-		{ ui->checkBox_basic1, "basic0", false },
+		{ ui->checkBox_basic0, "basic0", false },
 		{ ui->checkBox_basic1, "basic1", false },
 		{ ui->checkBox_basic2, "basic2", false },
 		{ ui->checkBox_basic3, "basic3", false },
@@ -210,15 +210,25 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		{ ui->checkBox_vrradio, "vrradio", false },
 		{ ui->checkBox_gendai, "gendai", false },
 		{ ui->checkBox_chinese, "chinese", false },
+		{ ui->checkBox_stepup_chinese, "stepup-chinese", false },
 		{ ui->checkBox_hangeul, "hangeul", false },
+		{ ui->checkBox_stepup_hangeul, "stepup-hangeul", false },
 		{ ui->checkBox_french, "french", false },
+		{ ui->checkBox_french2, "french2", false },
 		{ ui->checkBox_italian, "italian", false },
+		{ ui->checkBox_italian2, "italian2", false },
 		{ ui->checkBox_german, "german", false },
+		{ ui->checkBox_german2, "german2", false },
 		{ ui->checkBox_spanish, "spanish", false },
+		{ ui->checkBox_spanish2, "spanish2", false },
 		{ ui->checkBox_russian, "russian", false },
+		{ ui->checkBox_russian2, "russian2", false },
 		{ ui->checkBox_portuguese, "portuguese", false },
+		{ ui->checkBox_stepup_portuguese, "stepup-portuguese", false },
 		{ ui->checkBox_arabic, "arabic", false },
 		{ ui->checkBox_japanese, "japanese", false },
+		{ ui->checkBox_japanese2, "japanese2", false },
+		{ ui->checkBox_Living_in_Japan, "Living_in_Japan", false },
 		{ ui->checkBox_shower, "shower", false },
 		{ ui->checkBox_skip, "skip", true },
 		{ ui->checkBox_keep_on_error, "keep_on_error", false },
