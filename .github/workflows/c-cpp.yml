@@ -18,15 +18,15 @@ jobs:
         
     - uses: actions/checkout@v3
     - name: qmake
-      run: qmake -makefile CaptureStream0.pro
+      run: qmake -makefile CaptureStream2-extra.pro
     - name: make
       run: make
       
     - name: Make CaptureStream0 executable
-      run: sudo chmod -R 755 ./CaptureStream0.app
+      run: sudo chmod -R 755 ./CaptureStream2-extra.app
   
     - uses: actions/upload-artifact@v3
       with:
-        name: CaptureStream0
+        name: CaptureStream2-extra
         path: ./
 
