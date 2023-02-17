@@ -41,5 +41,11 @@ Macintosh版: [macOS版について](https://github.com/CSReviser/CS-English/wik
              
      
 
-### イメージ（Windows版）  
+### イメージ
+### 【Wondows版】                       
+<img src="https://user-images.githubusercontent.com/46049273/219273475-d5a3ec0b-d1ae-4523-a50e-3ab0fc1dec92.png" width="500">
+
+
+### 【Ubuntu版】                       
+<img src="https://user-images.githubusercontent.com/46049273/219273859-02f739d2-3ce0-4e2d-b4fc-70ed6c1cc340.png" width="500">
 
