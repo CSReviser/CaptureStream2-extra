@@ -1,4 +1,6 @@
-## 語学講座CS2【extra】 (2023年度)      
+## 語学講座CS2【extra】 (2023年度)  
+## ([語学講座CS2](https://csreviser.github.io/CaptureStream2/))[［類似アプリ］](https://csreviser.github.io/CaptureStream2/application)          
+
 ***
 ### 語学講座CS【extra】 [2023/04/04版](https://github.com/CSReviser/Capturestream2-extra/releases/tag/20230404)                 
 
