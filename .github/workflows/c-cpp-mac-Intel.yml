@@ -24,7 +24,7 @@ jobs:
       run: make
       
     - name: Make CaptureStream2 executable
-      run: chmod -R 755 ./CaptureStream2.app
+      run: chmod -R 755 ./CaptureStream2-extra.app
   
     - uses: actions/upload-artifact@v3
       with:
