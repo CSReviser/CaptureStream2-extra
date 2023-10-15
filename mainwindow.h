@@ -103,12 +103,11 @@ private slots:
 	void customizeTitle();
 	void customizeFileName();
 	void customizeSaveFolder();
-	void customizeScramble();
+//	void customizeScramble();
 	void closeEvent2( );
 
 private:
 	QStringList getAttribute( QString url, QString attribute );
-	QString getJsonData( QString url );
 	Ui::MainWindowClass *ui;
 	DownloadThread* downloadThread;
 	QMenu* customizeMenu;
