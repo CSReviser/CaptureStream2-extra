@@ -2,12 +2,13 @@
 ## ([語学講座CS2](https://csreviser.github.io/CaptureStream2/))[［類似アプリ］](https://csreviser.github.io/CaptureStream2/application)          
 
 ***
-### 語学講座CS【extra】 [2023/04/04版](https://github.com/CSReviser/Capturestream2-extra/releases/tag/20230404)                 
+### 語学講座CS【extra】 [2023/10/15版](https://github.com/CSReviser/Capturestream2-extra/releases/tag/20231015)                 
 
-   - #### Windows版(32bit): [2023/04/04版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20230404/CaptureStream2-extra-Windows-20230404.zip)                          
-   - #### Windows版(64bit): [2023/04/04版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20230404/CaptureStream2-extra-Windows-x64-20230404.zip)    
-   - #### Ubuntu版: [2023/04/04版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20230404/CaptureStream2-extra-Ubuntu-qt5-20230404.zip)
-   - #### Macintosh版: [2023/04/04版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20230404/CaptureStream2-extra-Macintosh-20230404.dmg) 　　     
+   - #### Windows版(32bit): [2023/10/15版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231015/CaptureStream2-extra-Windows-20231015.zip)                          
+   - #### Windows版(64bit): [2023/10/15版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231015/CaptureStream2-extra-Windows-x64-20231015.zip)    
+   - #### Ubuntu版: [2023/10/15版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231015/CaptureStream2-extra-Ubuntu-qt5-20231015.zip)
+   - #### MacOS版: [2023/10/15版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231015/CaptureStream2-extra-MacOS-20231015.dmg)
+   - #### MacOS版(Universal): [2023/10/15版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231015/CaptureStream2-extra-MacOS-Univarsal-20231015.dmg) 　　     
                                
 ***       
 ### 【Wondows版】                       
