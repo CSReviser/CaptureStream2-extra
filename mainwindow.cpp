@@ -107,11 +107,11 @@ namespace {
 //			int day = regexp.cap( 2 ).toInt();
 //			result = QString( " (%1/%2/%3)" ).arg( regexp.cap( 3 ) )
 //					.arg( month, 2, 10, QLatin1Char( '0' ) ).arg( day, 2, 10, QLatin1Char( '0' ) );
-			result = QString( "  (2023/10/15)" ); 
+			result = QString( "  (2023/10/23)" ); 
 		}
 #endif
 #ifdef QT6
-			result = QString( "  (2023/10/15)" ); 
+			result = QString( "  (2023/10/23)" ); 
 #endif
 		return result;
 	}
@@ -278,6 +278,7 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 		{ ui->checkBox_this_week, "this_week", true },
 		{ ui->checkBox_next_week, "next_week", false },
 		{ ui->checkBox_next_week2, "past_week", false },
+//		{ ui->checkBox_ouch, "ouch", false },
 		{ NULL, NULL, false }
 	};
 
