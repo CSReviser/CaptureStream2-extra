@@ -2,12 +2,12 @@
 ## ([語学講座CS2](https://csreviser.github.io/CaptureStream2/))[［類似アプリ］](https://csreviser.github.io/CaptureStream2/application)          
 
 ***
-### 語学講座CS【extra】 [2023/10/15版](https://github.com/CSReviser/Capturestream2-extra/releases/tag/20231023)                 
+### 語学講座CS【extra】 [2023/10/15版](https://github.com/CSReviser/Capturestream2-extra/releases/tag/20231024)                 
 
-   - #### Windows版(32bit): [2023/10/23版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231023/CaptureStream2-extra-Windows-20231023.zip)                          
-   - #### Windows版(64bit): [2023/10/23版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231023/CaptureStream2-extra-Windows-x64-20231023.zip)    
-   - #### Ubuntu版: [2023/10/23版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231023/CaptureStream2-extra-Ubuntu-qt6-20231023.zip)
-   - #### MacOS版: [2023/10/23版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231023/CaptureStream2-extra-MacOS-20231023.dmg)
+   - #### Windows版(32bit): [2023/10/24版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231024/CaptureStream2-extra-Windows-20231024.zip)                          
+   - #### Windows版(64bit): [2023/10/24版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231024/CaptureStream2-extra-Windows-x64-20231024.zip)    
+   - #### Ubuntu版: [2023/10/24版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231024/CaptureStream2-extra-Ubuntu-qt6-20231024.zip)
+   - #### MacOS版: [2023/10/24版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231024/CaptureStream2-extra-MacOS-20231024.dmg)
 　　     
                                
 ***       
