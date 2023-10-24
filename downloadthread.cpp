@@ -1136,10 +1136,16 @@ void DownloadThread::run() {
 		   QString Xml_koza = "NULL";
 		   Xml_koza = map.value( json_paths[i].left(4) );
 		   		   	
+		   bool json_flag = false; if(json_paths[i] != "0000") json_flag = true;			// 放送後１週間の講座　＝　true
+		   bool xml_flag  = false; if(Xml_koza != "") xml_flag = true;					// 放送翌週月曜から１週間の講座　＝　true
+		   bool pass_week = false; if(ui->checkBox_next_week2->isChecked()) pass_week = true;		// [前週]チェックボックスにチェック　＝　true
+		   bool ouch_check= false; if( MainWindow::ouch_flag ) ouch_check = true;			// おうちチェックボックスにチェック　＝　true
+		   bool ouch_koza = false; if( paths[i] == "english/basic1" || paths[i] == "english/basic2" || paths[i] == "english/basic3" || paths[i] == "english/kaiwa" )  ouch_koza = true;			// おうちで英語学習対象講座　＝　true
+		   
 		   bool flag1 = false; bool flag2 = false; bool flag3 = false;
-		   if ( ( json_paths[i] != "0000" || Xml_koza == "NULL" ) && !(ui->checkBox_ouch->isChecked())) flag1 = true;				//json 放送後１週間
-		   if ( ((ui->checkBox_next_week2->isChecked()) || json_paths[i] == "0000") && !(ui->checkBox_ouch->isChecked()) ) flag2 = true;	// xml 放送翌週月曜から１週間
-		   if ( (ui->checkBox_ouch->isChecked()) || (paths[i] == "english/basic1" || paths[i] == "english/basic2" || paths[i] == "english/basic3" || paths[i] == "english/kaiwa" )) flag3 = true;	// おうちで英語学習 放送翌週月曜から６０日
+		   if ( ( json_flag || !xml_flag ) && !ouch_check ) flag1 = true;	//json 放送後１週間
+		   if ( (( pass_week || !json_flag ) && xml_flag ) && !ouch_check ) flag2 = true;	// xml 放送翌週月曜から１週間
+		   if ( ouch_check && ouch_koza ) flag3 = true;						// おうちで英語学習 放送翌週月曜から６０日
 		   		
 		   if ( flag1 ) {							//json 放送後１週間
 		   	QStringList fileList2 = getJsonData( json_paths[i], "file_name" );
