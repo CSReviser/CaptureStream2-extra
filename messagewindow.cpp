@@ -36,12 +36,12 @@ namespace {
 	const int DEFAULT_WIDTH = 540;
 	const int DEFAULT_HEIGHT = 300;
 #ifdef QT4_QT5_WIN
-	const int FONT_SIZE = 12;
-#else
-#ifdef QT4_QT5_MAC
 	const int FONT_SIZE = 11;
 #else
-	const int FONT_SIZE = 13;
+#ifdef QT4_QT5_MAC
+	const int FONT_SIZE = 10;
+#else
+	const int FONT_SIZE = 12;
 #endif
 #endif
 }
