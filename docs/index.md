@@ -2,17 +2,17 @@
 ## ([語学講座CS2](https://csreviser.github.io/CaptureStream2/))[［類似アプリ］](https://csreviser.github.io/CaptureStream2/application)          
 
 ***
-### 語学講座CS【extra】 [2023/10/24版](https://github.com/CSReviser/Capturestream2-extra/releases/tag/20231024)                 
+### 語学講座CS【extra】 [2023/11/08版](https://github.com/CSReviser/Capturestream2-extra/releases/tag/20231108)                 
 
-   - #### Windows版(32bit): [2023/10/24版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231024/CaptureStream2-extra-Windows-20231024.zip)                          
-   - #### Windows版(64bit): [2023/10/24版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231024/CaptureStream2-extra-Windows-x64-20231024.zip)    
-   - #### Ubuntu版: [2023/10/24版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231024/CaptureStream2-extra-Ubuntu-qt6-20231024.zip)
-   - #### MacOS版: [2023/10/24版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231024/CaptureStream2-extra-MacOS-20231024.dmg)
+   - #### Windows版(32bit): [2023/11/08版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231108/CaptureStream2-extra-Windows-20231108.zip)                          
+   - #### Windows版(64bit): [2023/11/08版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231108/CaptureStream2-extra-Windows-x64-20231108.zip)    
+   - #### Ubuntu版: [2023/11/08版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231108/CaptureStream2-extra-Ubuntu-20231108.zip)
+   - #### MacOS版: [2023/11/08版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231108/CaptureStream2-extra-MacOS-20231108.dmg)
 　　     
                                
 ***       
 ### 【Wondows版】                       
-<img src="https://user-images.githubusercontent.com/46049273/219273475-d5a3ec0b-d1ae-4523-a50e-3ab0fc1dec92.png" width="500">
+<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/46049273/281395064-56ddca42-8b83-41b7-83e9-927396b208f2.png" width="500">
 
 
 ### 【Ubuntu版】                       
