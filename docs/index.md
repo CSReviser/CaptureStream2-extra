@@ -4,7 +4,6 @@
 ***
 ### 語学講座CS【extra】 [2023/11/08版](https://github.com/CSReviser/Capturestream2-extra/releases/tag/20231108)                 
 
-   - #### Windows版(32bit): [2023/11/08版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231108/CaptureStream2-extra-Windows-20231108.zip)                          
    - #### Windows版(64bit): [2023/11/08版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231108/CaptureStream2-extra-Windows-x64-20231108.zip)    
    - #### Ubuntu版: [2023/11/08版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231108/CaptureStream2-extra-Ubuntu-20231108.zip)
    - #### MacOS版: [2023/11/08版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20231108/CaptureStream2-extra-MacOS-20231108.dmg)
