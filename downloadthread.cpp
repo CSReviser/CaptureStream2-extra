@@ -581,11 +581,21 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 		return false;
 	outputDir += QDir::separator();	//通常ファイルが存在する場合のチェックのために後から追加する
 
+	int month = hdate.left( 2 ).toInt();
+	int year = nendo.right( 4 ).toInt();
+	int day = hdate.mid( 3, 2 ).toInt();
+	if ( 2022 > year ) return false;
+	int year1 = QDate::currentDate().year();
+	if ( month <= 4 && QDate::currentDate().year() > year )
+		year = year + (year1 - year);
+	QDate onair( year, month, day );
+	QString yyyymmdd = onair.toString( "yyyy_MM_dd" );
+
 	QString titleFormat;
 	QString fileNameFormat;
 	CustomizeDialog::formats( "xml", titleFormat, fileNameFormat );
-	QString id3tagTitle = formatName( titleFormat, kouza, hdate, file, nendo, "", false );
-	QString outFileName = formatName( fileNameFormat, kouza, hdate, file, nendo, "", true );
+	QString id3tagTitle = formatName( titleFormat, kouza, hdate, file, yyyymmdd.left(4), "", false );
+	QString outFileName = formatName( fileNameFormat, kouza, hdate, file, yyyymmdd.left(4), "", true );
 	QFileInfo fileInfo( outFileName );
 	QString outBasename = fileInfo.completeBaseName();
 	
@@ -600,25 +610,6 @@ bool DownloadThread::captureStream( QString kouza, QString hdate, QString file, 
 #else
 	QString null( "/dev/null" );
 #endif
-	int month = hdate.left( 2 ).toInt();
-	int year = nendo.right( 4 ).toInt();
-	int day = hdate.mid( 3, 2 ).toInt();
-	if ( 2022 > year ) return false;
-	int year1 = QDate::currentDate().year();
-
-//	if ( QString::compare(  kouza , QString::fromUtf8( "ボキャブライダー" ) ) ==0 ){
-//		if ( month == 3 && ( day == 30 || day == 31) && year == 2022 ) 
-//		year += 0; 
- //		else
-//		if ( month < 4 )
-//		year += 1;
-//	} else {
-	if ( month <= 4 && QDate::currentDate().year() > year )
-		year = year + (year1 - year);
-//	}
-	QDate onair( year, month, day );
-	QString yyyymmdd = onair.toString( "yyyy_MM_dd" );
-
 	QString kon_nendo = "2023"; //QString::number(year1);
 
 	if ( ui->checkBox_skip->isChecked() && QFile::exists( outputDir + outFileName ) ) {
