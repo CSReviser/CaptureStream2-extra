@@ -278,7 +278,7 @@
        <item>
         <widget class="QCheckBox" name="checkBox_portuguese">
          <property name="text">
-          <string>ポルトガル語入門</string>
+          <string>ポルトガル語講座</string>
          </property>
         </widget>
        </item>
@@ -388,7 +388,7 @@
        <item>
         <widget class="QCheckBox" name="checkBox_stepup_portuguese">
          <property name="text">
-          <string>ポルトガル語ステップアップ</string>
+          <string>Asian View</string>
          </property>
         </widget>
        </item>
@@ -506,20 +506,6 @@
         <widget class="QCheckBox" name="checkBox_next_week2">
          <property name="text">
           <string>[前週]放送翌週月曜(10時)から１週間</string>
-         </property>
-         <property name="checked">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="11" column="1">
-      <layout class="QHBoxLayout" name="horizontalLayout_281">
-       <item>
-        <widget class="QCheckBox" name="checkBox_ouch">
-         <property name="text">
-          <string>[おうち]おうちで英語学習</string>
          </property>
          <property name="checked">
           <bool>false</bool>
@@ -917,7 +903,6 @@
   <tabstop>checkBox_keep_on_error</tabstop>
   <tabstop>checkBox_past_week</tabstop>
   <tabstop>checkBox_next_week2</tabstop>
-  <tabstop>checkBox_ouch</tabstop>
  </tabstops>
  <resources/>
  <connections>
