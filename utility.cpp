@@ -21,6 +21,7 @@
 #include "utility.h"
 #include "urldownloader.h"
 #include "mainwindow.h"
+#include "downloadthread.h"
 #include "qt4qt5.h"
 
 #ifdef QT5
@@ -42,12 +43,14 @@
 #include <QByteArray>
 #include <QDebug>
 #include <QDateTime>
+#include <QDate>
 #include <QStandardPaths>
 #include <QtNetwork>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QJsonValue>
+#include <QMap>
 
 namespace {
 	const QString UPUPUP( "/../../.." );
@@ -73,8 +76,54 @@ namespace {
         const QString WIKIXML2( "')/flv/scramble[@date=\"" );
 	const QString WIKIXML3( "\"]/@code/string()" );
 	const QString APPNAME( "CaptureStream2" );
-}
 
+
+QDate nendo_start_date = DownloadThread::nendo_start_date1;
+QDate zenki_end_date = DownloadThread::zenki_end_date;
+QDate kouki_start_date = DownloadThread::kouki_start_date;
+QDate nendo_end_date = DownloadThread::nendo_end_date;
+
+
+QMap<QString, QString> koza_zenki = { 
+	{ "0953_x1", "まいにちフランス語【初級編】" },	// まいにちフランス語 初級編
+	{ "0953_y1", "まいにちフランス語【応用編】" },	// まいにちフランス語 応用編
+	{ "0943_x1", "まいにちドイツ語【初級編】" },	// まいにちドイツ語 初級編
+	{ "0943_y1", "まいにちドイツ語【応用編】" },	// まいにちドイツ語 応用編
+	{ "0948_x1", "まいにちスペイン語【初級編】" },	// まいにちスペイン語 初級編
+	{ "0948_y1", "まいにちスペイン語【応用編】" },	// まいにちスペイン語 応用編
+	{ "0946_x1", "まいにちイタリア語【初級編】" },	// まいにちイタリア語 初級編
+	{ "0946_y1", "まいにちイタリア語【応用編】" },	// まいにちイタリア語 応用編
+	{ "0956_x1", "まいにちロシア語【初級編】" },	// まいにちロシア語 初級編
+	{ "0956_y1", "まいにちロシア語【応用編】" },	// まいにちロシア語 応用編
+};	
+
+QMap<QString, QString> koza_kouki = { 
+	{ "0953_x1", "まいにちフランス語【入門編】" },	// まいにちフランス語 入門編
+	{ "0953_y1", "まいにちフランス語【応用編】" },	// まいにちフランス語 応用編
+	{ "0943_x1", "まいにちドイツ語【入門編】" },	// まいにちドイツ語 入門編
+	{ "0943_y1", "まいにちドイツ語【応用編】" },	// まいにちドイツ語 応用編
+	{ "0948_x1", "まいにちスペイン語【入門編】" },	// まいにちスペイン語 入門編
+	{ "0948_y1", "【まいにちスペイン語応用編】" },	// まいにちスペイン語 応用編
+	{ "0946_x1", "まいにちイタリア語【入門編】" },	// まいにちイタリア語 入門編
+	{ "0946_y1", "まいにちイタリア語【応用編】" },	// まいにちイタリア語 応用編
+	{ "0956_x1", "まいにちロシア語【入門編】" },	// まいにちロシア語 入門編
+	{ "0956_y1", "まいにちロシア語【応用編】" },	// まいにちロシア語 応用編
+};	
+
+QMap<QString, QString> koza_unkown = { 
+	{ "0953_x1", "まいにちフランス語【入門/初級編】" },	// まいにちフランス語 入門編
+	{ "0953_y1", "まいにちフランス語【応用編】" },		// まいにちフランス語 応用編
+	{ "0943_x1", "まいにちドイツ語【入門/初級編】" },	// まいにちドイツ語 入門編
+	{ "0943_y1", "まいにちドイツ語【応用編】" },		// まいにちドイツ語 応用編
+	{ "0948_x1", "まいにちスペイン語【入門/初級編】" },	// まいにちスペイン語 入門編
+	{ "0948_y1", "まいにちスペイン語【中級/応用編】" },	// まいにちスペイン語 応用編
+	{ "0946_x1", "まいにちイタリア語【入門/初級編】" },	// まいにちイタリア語 入門編
+	{ "0946_y1", "まいにちイタリア語【応用編】" },		// まいにちイタリア語 応用編
+	{ "0956_x1", "まいにちロシア語【入門/初級編】" },	// まいにちロシア語 入門編
+	{ "0956_y1", "まいにちロシア語【応用編】" },		// まいにちロシア語 応用編
+};	
+
+}
 // Macの場合はアプリケーションバンドル、それ以外はアプリケーションが含まれるディレクトリを返す
 QString Utility::applicationBundlePath() {
 	QString result = QCoreApplication::applicationDirPath();
@@ -238,10 +287,22 @@ QString Utility::getJsonFile( QString jsonUrl, int Timer ) {
 QString Utility::getProgram_name( QString url ) {
 	QString attribute;	QString title;	QString corner_name;
 	attribute.clear() ;
+	int json_ohyo = 0 ;
+	QString url_tmp = url;
+	if ( url.contains( "_x1" ) ) { url.replace( "_x1", "_01" ); json_ohyo = 1 ; };
+	if ( url.contains( "_y1" ) ) { url.replace( "_y1", "_01" ); json_ohyo = 2 ; };
+	if (json_ohyo != 0){
+		if ( QDate::currentDate() < zenki_end_date ) 
+			if ( koza_zenki.contains( url_tmp ) ) return koza_zenki.value( url_tmp );
+		if ( QDate::currentDate() < nendo_end_date )
+			if ( koza_kouki.contains( url_tmp ) ) return koza_kouki.value( url_tmp );
+		if ( koza_unkown.contains( url_tmp ) ) return koza_unkown.value( url_tmp );
+	}
 	QString pattern( "[0-9]{4}" );
     	pattern = QRegularExpression::anchoredPattern(pattern);
  	QString pattern2( "[A-Z0-9][0-9]{3}_[0-9]{2}" );
     	if ( QRegularExpression(pattern).match( url ).hasMatch() ) url += "_01";
+    	
     	if ( !(QRegularExpression(pattern2).match( url ).hasMatch()) ) return attribute;
 	
  	const QString jsonUrl1 = "https://www.nhk.or.jp/radio-api/app/v1/web/ondemand/series?site_id=" + url.left(4) + "&corner_site_id=" + url.right(2);
@@ -458,6 +519,7 @@ QStringList Utility::optionList() {
 
 	if( Utility::nogui() ) {
 		for( int i = 0; i < ProgList.count() ; i++ ){
+			if ( koza_unkown.contains( ProgList[i] ) ) { attribute += ProgList[i]; continue; }
 			QString pattern( "[0-9]{4}" );
     			pattern = QRegularExpression::anchoredPattern(pattern);
 			if ( QRegularExpression(pattern).match( ProgList[i] ).hasMatch() ) ProgList[i] += "_01";
@@ -466,5 +528,21 @@ QStringList Utility::optionList() {
 		if ( attribute.count() < 1 ) attribute += "return" ;
 	}
 	return attribute;
+}
+
+std::tuple<QString, QString, QString, QString> Utility::nogui_option( QString titleFormat, QString fileNameFormat, QString outputDir, QString extension ) {
+	QString titleFormat_out = titleFormat;
+	QString fileNameFormat_out = fileNameFormat;
+	QString outputDir_out = outputDir;
+	QString extension_out = extension;
+	QStringList optionList = QCoreApplication::arguments();
+	optionList.removeAt(0);
+
+	if ( optionList.contains( "-t" ) ) { titleFormat_out = optionList[ optionList.indexOf( "-t" ) + 1 ].remove( "'" ).remove( "\"" );}
+	if ( optionList.contains( "-f" ) ) { fileNameFormat_out = optionList[ optionList.indexOf( "-f" ) + 1 ].remove( "'" ).remove( "\"" );}
+	if ( optionList.contains( "-o" ) ) { outputDir_out = optionList[ optionList.indexOf( "-o" ) + 1 ].remove( "'" ).remove( "\"" ) + QDir::separator();}
+	if ( optionList.contains( "-e" ) ) { extension_out = optionList[ optionList.indexOf( "-e" ) + 1 ].remove( "'" ).remove( "\"" ); if (extension_out == "mp3") extension_out += "-64k-S"; }
+
+	return { titleFormat_out, fileNameFormat_out, outputDir_out, extension_out };
 }
 

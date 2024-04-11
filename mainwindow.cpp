@@ -108,11 +108,11 @@ namespace {
 //			int day = regexp.cap( 2 ).toInt();
 //			result = QString( " (%1/%2/%3)" ).arg( regexp.cap( 3 ) )
 //					.arg( month, 2, 10, QLatin1Char( '0' ) ).arg( day, 2, 10, QLatin1Char( '0' ) );
-			result = QString( "  (2024/04/04)" ); 
+			result = QString( "  (2024/04/11)" ); 
 		}
 #endif
 #ifdef QT6
-			result = QString( "  (2024/04/04)" ); 
+			result = QString( "  (2024/04/11)" ); 
 #endif
 		return result;
 	}
@@ -150,8 +150,8 @@ MainWindow::MainWindow( QWidget *parent )
 //	setMaximumHeight( maximumHeight() - menuBar()->height() );
 //	setMinimumHeight( maximumHeight() - menuBar()->height() );
 	menuBar()->setNativeMenuBar(false);		// 他のOSと同様にメニューバーを表示　2023/04/04
-	setMaximumHeight( maximumHeight() );		// ダウンロードボタンが表示されない問題対策　2022/04/16
-	setMinimumHeight( maximumHeight() );		// ダウンロードボタンが表示されない問題対策　2022/04/16
+	setMaximumHeight( maximumHeight() + menuBar()->height() );		// ダウンロードボタンが表示されない問題対策　2022/04/16
+	setMinimumHeight( maximumHeight() + menuBar()->height() );		// ダウンロードボタンが表示されない問題対策　2022/04/16
 //	QRect rect = geometry();
 //	rect.setHeight( rect.height() - menuBar()->height() );
 //	rect.setHeight( rect.height() );		// ダウンロードボタンが表示されない問題対策　2022/04/16
@@ -381,6 +381,18 @@ void MainWindow::settings( enum ReadWriteMode mode ) {
 			QString extension = settings.value( textComboBoxes[i].key, textComboBoxes[i].defaultValue ).toString();
 			textComboBoxes[i].comboBox->setCurrentIndex( textComboBoxes[i].comboBox->findText( extension ) );
 		}
+		if ( QDate::currentDate() <= DownloadThread::nendo_end_date1 ){
+		ui->checkBox_french->setText( QString( Utility::getProgram_name( "0953_x1" ) ) );	// まいにちフランス語 入門編
+		ui->checkBox_french2->setText( QString( Utility::getProgram_name( "0953_y1" ) ) );	// まいにちフランス語 応用編
+		ui->checkBox_german->setText( QString( Utility::getProgram_name( "0943_x1" ) ) );	// まいにちドイツ語 入門編
+		ui->checkBox_german2->setText( QString( Utility::getProgram_name( "0943_y1" ) ) );	// まいにちドイツ語 応用編
+		ui->checkBox_italian->setText( QString( Utility::getProgram_name( "0946_x1" ) ) );	// まいにちイタリア語 入門編
+		ui->checkBox_italian2->setText( QString( Utility::getProgram_name( "0946_y1" ) ) );	// まいにちイタリア語 応用編
+		ui->checkBox_spanish->setText( QString( Utility::getProgram_name( "0948_x1" ) ) );	// まいにちスペイン語 入門編
+		ui->checkBox_spanish2->setText( QString( Utility::getProgram_name( "0948_y1" ) ) );	// まいにちスペイン語 応用編
+		ui->checkBox_russian->setText( QString( Utility::getProgram_name( "0956_x1" ) ) );	// まいにちロシア語 入門編
+		ui->checkBox_russian2->setText( QString( Utility::getProgram_name( "0956_y1" ) ) );	// まいにちロシア語 応用編
+		}
 	} else {	// 設定書き出し
 #if !defined( QT4_QT5_MAC )
 		settings.setValue( SETTING_GEOMETRY, saveGeometry() );
@@ -426,147 +438,6 @@ void MainWindow::customizeSaveFolder() {
 void MainWindow::customizeFolderOpen() {
 	QDesktopServices::openUrl(QUrl("file:///" + outputDir, QUrl::TolerantMode));
 }
-
-
-#if 0
-	if ( mode == ReadMode ) {	// 設定読み込み
-		QVariant saved;
-		
-//#if !defined( QT4_QT5_MAC )
-//#if defined( QT4_QT5_MAC ) || defined( QT4_QT5_WIN )	// X11では正しく憶えられないので位置をリストアしない(2022/11/01:Linux向けに変更）
-		saved = settings.value( SETTING_GEOMETRY );
-#ifdef QT5
-		if ( saved.type() == QVariant::Invalid )
-#endif
-#ifdef QT6
-		if ( saved.toString() == "" )
-#endif
-			move( 70, 22 );
-		else {
-			// ウィンドウサイズはバージョン毎に変わる可能性があるのでウィンドウ位置だけリストアする
-			QSize windowSize = size();
-			restoreGeometry( saved.toByteArray() );
-			resize( windowSize );
-		}
-//#endif                                              　//(2022/11/01:Linux向けに変更） 
-//#endif
-#if 0
-//#ifdef QT4_QT5_MAC
-		saved = settings.value( SETTING_MAINWINDOW_POSITION );
-		if ( saved.type() == QVariant::Invalid )
-			move( 70, 22 );
-		else {
-			QSize windowSize = size();
-			move( saved.toPoint() );
-			resize( windowSize );
-		}
-		saved = settings.value( SETTING_WINDOWSTATE );
-		if ( !(saved.type() == QVariant::Invalid) )
-			restoreState( saved.toByteArray() );
-#endif
-
-		saved = settings.value( SETTING_SAVE_FOLDER );
-#if !defined( QT4_QT5_MAC )
-#ifdef QT5
-		outputDir = saved.type() == QVariant::Invalid ? Utility::applicationBundlePath() : saved.toString();
-#endif
-#ifdef QT6
-		outputDir = saved.toString() == "" ? Utility::applicationBundlePath() : saved.toString();
-#endif
-#endif
-#ifdef QT4_QT5_MAC
-#ifdef QT5
-		if ( saved.type() == QVariant::Invalid ) {
-#endif
-#ifdef QT6
-		if ( saved.toString() == "" ) {
-#endif
-			outputDir = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
-			MainWindow::customizeSaveFolder();
-		} else
-			outputDir = saved.toString();
-#endif
-	} else {	// 設定書き出し
-#if !defined( QT4_QT5_MAC )
-		settings.setValue( SETTING_GEOMETRY, saveGeometry() );
-#endif
-#ifdef QT4_QT5_MAC
-		settings.setValue( SETTING_WINDOWSTATE, saveState());
-		settings.setValue( SETTING_MAINWINDOW_POSITION, pos() );
-#endif
-		if ( outputDirSpecified )
-			settings.setValue( SETTING_SAVE_FOLDER, outputDir );
-	}
-
-	settings.endGroup();
-}
-
-void MainWindow::customizeTitle() {
-	CustomizeDialog dialog( Ui::TitleMode );
-	dialog.exec();
-}
-
-void MainWindow::customizeFileName() {
-	CustomizeDialog dialog( Ui::FileNameMode );
-	dialog.exec();
-}
-
-void MainWindow::customizeSaveFolder() {
-	QString dir = QFileDialog::getExistingDirectory( 0, QString::fromUtf8( "書き込み可能な保存フォルダを指定してください" ),
-									   outputDir, QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks );
-	if ( dir.length() ) {
-		outputDir = dir + QDir::separator();
-		outputDirSpecified = true;
-	}
-}
-
-#if 0
-void MainWindow::customizeScramble() {
-	QString optional_temp[] = { optional1, optional2, optional3, optional4, optional5, optional6, optional7, optional8, "NULL" };
-	ScrambleDialog dialog( optional1, optional2, optional3, optional4, optional5, optional6, optional7, optional8 );
-    if (dialog.exec() ) {
-    	QString pattern( "[0-9]{4}" );
-    	pattern = QRegularExpression::anchoredPattern(pattern);
-	for ( int i = 0; optional_temp[i] != "NULL"; i++ ) 
-	    	if ( QRegularExpression(pattern).match( optional_temp[i] ).hasMatch() ) optional_temp[i] += "_01";
-
-	QString optional[] = { dialog.scramble1(), dialog.scramble2(), dialog.scramble3(), dialog.scramble4(), dialog.scramble5(), dialog.scramble6(), dialog.scramble7(), dialog.scramble8(), "NULL" };	
-	QString title[8];
-	for ( int i = 0; optional[i] != "NULL"; i++ ) {
-		if ( QRegularExpression(pattern).match( optional[i] ).hasMatch() ) optional[i] += "_01" ;
-		title[i] = Utility::getProgram_name( optional[i] );
-		if ( title[i]  == "" ) { optional[i] = optional_temp[i]; title[i] = Utility::getProgram_name( optional[i] ); }
-	}
-	optional1 = optional[0]; optional2 = optional[1];
-	optional3 = optional[2]; optional4 = optional[3];
-	optional5 = optional[4]; optional6 = optional[5];
-	optional7 = optional[6]; optional8 = optional[7];
-	program_title1 = title[0]; program_title2 = title[1];
-	program_title3 = title[2]; program_title4 = title[3];
-	program_title5 = title[4]; program_title6 = title[5];
-	program_title7 = title[6]; program_title8 = title[7];
-
-	QString program_title[] = { program_title1, program_title2, program_title3, program_title4, program_title5, program_title6, program_title7, program_title8, "NULL" };
-	QAbstractButton* checkboxx[] = { ui->toolButton_optional1, ui->toolButton_optional2,
-					 ui->toolButton_optional3, ui->toolButton_optional4,
-					 ui->toolButton_optional5, ui->toolButton_optional6,
-					 ui->toolButton_optional7, ui->toolButton_optional8,
-					 NULL
-		 	};
-	bool flag = false;
-	for ( int i = 0; program_title[i] != "NULL"; i++ ) {
-		if ( optional[i] == optional_temp[i] && checkboxx[i]->isChecked() ) flag = true; else flag = false;
-				checkboxx[i]->setChecked(false);
-				checkboxx[i]->setText( QString( program_title[i] ) );
-				if ( flag ) checkboxx[i]->setChecked( true );
-	}
-	optional1 = optional[0]; optional2 = optional[1]; optional3 = optional[2]; optional4 = optional[3];
-	optional5 = optional[4]; optional6 = optional[5]; optional7 = optional[6]; optional8 = optional[7];
-	ScrambleDialog dialog( optional1, optional2, optional3, optional4, optional5, optional6, optional7, optional8 );
-    }
-}
-#endif
-#endif
 void MainWindow::download() {	//「レコーディング」または「キャンセル」ボタンが押されると呼び出される
 	if ( !downloadThread ) {	//レコーディング実行
 		if ( messagewindow.text().length() > 0 )
