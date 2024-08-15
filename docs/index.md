@@ -6,7 +6,7 @@
 
    - #### Windows版(64bit): [2024/08/14版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20240814/CaptureStream2-extra-Windows-x64-20240814.zip)    
    - #### Ubuntu版: [2024/08/14版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20240814/CaptureStream2-extra-Ubuntu-20240814.zip)
-   - #### MacOS版: [2024/08/14版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20240814/CaptureStream2-extra-MacOS-20240814.dmg)
+   - #### MacOS版: [2024/08/14版ダウンロード](https://github.com/CSReviser/CaptureStream2-extra/releases/download/20240814/CaptureStream2-extra-MacOS-20240814-1.dmg)
 　　     
                                
 ***       
