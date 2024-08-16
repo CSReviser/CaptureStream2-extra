@@ -219,7 +219,7 @@ MainWindow::~MainWindow() {
 	}
 //	if ( !Utility::nogui() && no_write_ini == "yes" )
 	bool nogui_flag = Utility::nogui();
-	if ( nogui_flag && no_write_ini == "yes" )
+	if ( !nogui_flag && no_write_ini == "yes" )
 			settings( WriteMode );
 	delete ui;
 }
