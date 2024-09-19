@@ -543,22 +543,6 @@ void MainWindow::closeEvent2( ) {
 	}
 }
 
-void MainWindow::closeEvent2( ) {
-	int res = QMessageBox::question(this, tr("設定削除"), tr("削除しますか？"));
-	if (res == QMessageBox::Yes) {
-	no_write_ini = "no";
-	
-	QFile::remove( ini_file_path + INI_FILE );
-	
-	if ( downloadThread ) {
-		messagewindow.appendParagraph( QString::fromUtf8( "レコーディングをキャンセル中..." ) );
-		download();
-	}
-	messagewindow.close();
-	QCoreApplication::exit();
-	}
-}
-
 void MainWindow::setmap() {
 	QStringList idList; 		idList.clear();
 	QStringList titleList; 		titleList.clear();
