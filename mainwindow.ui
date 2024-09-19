@@ -514,6 +514,20 @@
        </item>
       </layout>
      </item>
+     <item row="11" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout_281">
+       <item>
+        <widget class="QCheckBox" name="checkBox_thumbnail">
+         <property name="text">
+          <string>サムネイル(Album Art)を追加する</string>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
      <item row="11" column="0">
       <layout class="QHBoxLayout" name="horizontalLayout_22">
        <item>

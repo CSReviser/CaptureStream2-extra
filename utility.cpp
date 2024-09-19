@@ -77,50 +77,17 @@ namespace {
 	const QString WIKIXML3( "\"]/@code/string()" );
 	const QString APPNAME( "CaptureStream2" );
 
-
-QDate nendo_start_date = DownloadThread::nendo_start_date1;
-QDate zenki_end_date = DownloadThread::zenki_end_date;
-QDate kouki_start_date = DownloadThread::kouki_start_date;
-QDate nendo_end_date = DownloadThread::nendo_end_date;
-
-
-QMap<QString, QString> koza_zenki = { 
-	{ "0953_x1", "まいにちフランス語【初級編】" },	// まいにちフランス語 初級編
-	{ "0953_y1", "まいにちフランス語【応用編】" },	// まいにちフランス語 応用編
-	{ "0943_x1", "まいにちドイツ語【初級編】" },	// まいにちドイツ語 初級編
-	{ "0943_y1", "まいにちドイツ語【応用編】" },	// まいにちドイツ語 応用編
-	{ "0948_x1", "まいにちスペイン語【初級編】" },	// まいにちスペイン語 初級編
-	{ "0948_y1", "まいにちスペイン語【応用編】" },	// まいにちスペイン語 応用編
-	{ "0946_x1", "まいにちイタリア語【初級編】" },	// まいにちイタリア語 初級編
-	{ "0946_y1", "まいにちイタリア語【応用編】" },	// まいにちイタリア語 応用編
-	{ "0956_x1", "まいにちロシア語【初級編】" },	// まいにちロシア語 初級編
-	{ "0956_y1", "まいにちロシア語【応用編】" },	// まいにちロシア語 応用編
-};	
-
-QMap<QString, QString> koza_kouki = { 
-	{ "0953_x1", "まいにちフランス語【入門編】" },	// まいにちフランス語 入門編
-	{ "0953_y1", "まいにちフランス語【応用編】" },	// まいにちフランス語 応用編
-	{ "0943_x1", "まいにちドイツ語【入門編】" },	// まいにちドイツ語 入門編
-	{ "0943_y1", "まいにちドイツ語【応用編】" },	// まいにちドイツ語 応用編
-	{ "0948_x1", "まいにちスペイン語【入門編】" },	// まいにちスペイン語 入門編
-	{ "0948_y1", "【まいにちスペイン語応用編】" },	// まいにちスペイン語 応用編
-	{ "0946_x1", "まいにちイタリア語【入門編】" },	// まいにちイタリア語 入門編
-	{ "0946_y1", "まいにちイタリア語【応用編】" },	// まいにちイタリア語 応用編
-	{ "0956_x1", "まいにちロシア語【入門編】" },	// まいにちロシア語 入門編
-	{ "0956_y1", "まいにちロシア語【応用編】" },	// まいにちロシア語 応用編
-};	
-
 QMap<QString, QString> koza_unkown = { 
-	{ "0953_x1", "まいにちフランス語【入門/初級編】" },	// まいにちフランス語 入門編
-	{ "0953_y1", "まいにちフランス語【応用編】" },		// まいにちフランス語 応用編
-	{ "0943_x1", "まいにちドイツ語【入門/初級編】" },	// まいにちドイツ語 入門編
-	{ "0943_y1", "まいにちドイツ語【応用編】" },		// まいにちドイツ語 応用編
-	{ "0948_x1", "まいにちスペイン語【入門/初級編】" },	// まいにちスペイン語 入門編
-	{ "0948_y1", "まいにちスペイン語【中級/応用編】" },	// まいにちスペイン語 応用編
-	{ "0946_x1", "まいにちイタリア語【入門/初級編】" },	// まいにちイタリア語 入門編
-	{ "0946_y1", "まいにちイタリア語【応用編】" },		// まいにちイタリア語 応用編
-	{ "0956_x1", "まいにちロシア語【入門/初級編】" },	// まいにちロシア語 入門編
-	{ "0956_y1", "まいにちロシア語【応用編】" },		// まいにちロシア語 応用編
+	{ "XQ487ZM61K_x1", "まいにちフランス語【入門/初級編】" },	// まいにちフランス語 入門編
+	{ "XQ487ZM61K_y1", "まいにちフランス語【応用編】" },		// まいにちフランス語 応用編
+	{ "N8PZRZ9WQY_x1", "まいにちドイツ語【入門/初級編】" },	// まいにちドイツ語 入門編
+	{ "N8PZRZ9WQY_y1", "まいにちドイツ語【応用編】" },		// まいにちドイツ語 応用編
+	{ "NRZWXVGQ19_x1", "まいにちスペイン語【入門/初級編】" },	// まいにちスペイン語 入門編
+	{ "NRZWXVGQ19_y1", "まいにちスペイン語【中級/応用編】" },	// まいにちスペイン語 応用編
+	{ "LJWZP7XVMX_x1", "まいにちイタリア語【入門/初級編】" },	// まいにちイタリア語 入門編
+	{ "LJWZP7XVMX_y1", "まいにちイタリア語【応用編】" },		// まいにちイタリア語 応用編
+	{ "YRLK72JZ7Q_x1", "まいにちロシア語【入門/初級編】" },	// まいにちロシア語 入門編
+	{ "YRLK72JZ7Q_y1", "まいにちロシア語【応用編】" },		// まいにちロシア語 応用編
 };	
 
 }
@@ -282,26 +249,25 @@ QString Utility::getJsonFile( QString jsonUrl, int Timer ) {
 QString Utility::getProgram_name( QString url ) {
 	QString attribute;	QString title;	QString corner_name;
 	attribute.clear() ;
-	int json_ohyo = 0 ;
-	QString url_tmp = url;
-	if ( url.contains( "_x1" ) ) { url.replace( "_x1", "_01" ); json_ohyo = 1 ; };
-	if ( url.contains( "_y1" ) ) { url.replace( "_y1", "_01" ); json_ohyo = 2 ; };
-	if (json_ohyo != 0){
-		if ( QDate::currentDate() <  DownloadThread::zenki_end_date )
-			if ( koza_zenki.contains( url_tmp ) ) return koza_zenki.value( url_tmp );
-		if ( DownloadThread::nendo_end_date < QDate::currentDate() && QDate::currentDate() < DownloadThread::nendo_end_date )
-			if ( koza_kouki.contains( url_tmp ) ) return koza_kouki.value( url_tmp );
-		if ( koza_unkown.contains( url_tmp ) ) return koza_unkown.value( url_tmp );
-	}
-	QString pattern( "[0-9]{4}" );
+
+	QString pattern( "[A-Z0-9][0-9]{3}|[A-Z0-9]{10}" );
     	pattern = QRegularExpression::anchoredPattern(pattern);
- 	QString pattern2( "[A-Z0-9][0-9]{3}_[0-9]{2}" );
+ 	QString pattern2( "[A-Z0-9][0-9]{3}_[sxy0-9][0-9]|[A-Z0-9]{10}_[sxy0-9][0-9]" );
     	if ( QRegularExpression(pattern).match( url ).hasMatch() ) url += "_01";
     	
-    	if ( !(QRegularExpression(pattern2).match( url ).hasMatch()) ) return attribute;
+//	QString pattern( "[A-Z0-9]{4}_[0-9]{2}" );
+//    	pattern = QRegularExpression::anchoredPattern(pattern);
+// 	QString pattern2( "[A-Z0-9]{10}_[0-9]{2}" );
+//     	if ( url.right(3) != "_01" ) url += "_01";
+
+	if ( MainWindow::id_map.contains( url ) ) return MainWindow::id_map.value( url );
+
+	int l = 10 ;				int l_length = url.length();
+	if ( l_length != 13 ) l = l_length -3 ;
+    	
+//    	if ( !(QRegularExpression(pattern).match( url ).hasMatch()) && !(QRegularExpression(pattern2).match( url ).hasMatch()) ) return attribute;
 	
- 	const QString jsonUrl1 = "https://www.nhk.or.jp/radio-api/app/v1/web/ondemand/series?site_id=" + url.left(4) + "&corner_site_id=" + url.right(2);
-//	const QString jsonUrl2 = "https://www.nhk.or.jp/radioondemand/json/" + url.left(4) + "/bangumi_" + url + ".json";
+ 	const QString jsonUrl1 = "https://www.nhk.or.jp/radio-api/app/v1/web/ondemand/series?site_id=" + url.left( l ) + "&corner_site_id=" + url.right(2);
 
 	QString strReply;
 	int flag = 0;
@@ -325,7 +291,6 @@ QString Utility::getProgram_name( QString url ) {
 	switch ( flag ) {
 	case 0: return attribute;
 	case 1: std::tie( title, corner_name ) = Utility::getProgram_name1( strReply ); break;
-//	case 2: std::tie( title, corner_name ) = Utility::getProgram_name2( strReply ); break;
 	default: return attribute;
 	}
 	attribute = Utility::getProgram_name3( title, corner_name );
