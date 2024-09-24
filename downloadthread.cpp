@@ -320,7 +320,7 @@ void DownloadThread::thumbnail_add( QString dstPath, QString tmp, QString json_p
 	if ( !MainWindow::thumbnail_map.contains( json_path.left( l ) + "_01" ) ) return;
 	QFile::rename( dstPath, tmp );
 	QString thumb = MainWindow::thumbnail_map.value( json_path.left( l ) + "_01" );
-	QStringList arguments_t = { "-y", "-i", tmp, "-i", thumb, "-map", "0:a", "-map", "1:v", "-map_metadata", "0", "-codec", "copy", "-disposition:1", "attached_pic", dstPath };
+	QStringList arguments_t = { "-y", "-i", tmp, "-i", thumb, "-id3v2_version", "3", "-map", "0:a", "-map", "1:v", "-map_metadata", "0", "-codec", "copy", "-disposition:1", "attached_pic", dstPath };
 	QProcess process_t;
 	process_t.setProgram( ffmpeg );
 	process_t.setArguments( arguments_t );
